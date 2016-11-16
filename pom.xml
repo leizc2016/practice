@@ -133,6 +133,6 @@
 		<module>practice_public</module>
 		
 		<module>practice_user</module>
-		<!--<module>practice_user</module>-->
+		
 	</modules>
 </project>
