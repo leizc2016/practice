@@ -130,6 +130,7 @@
 		<module>practice_comm</module>
 		<module>practice_front</module>
 		<module>practice_public</module>
+		
 		<module>practice_user</module>
 		<!--<module>practice_user</module>-->
 	</modules>
