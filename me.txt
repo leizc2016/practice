@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 from master
+=======
+from master_1
+>>>>>>> c21cbfa7ebb840ff64a829ab26f7d2276363dbc8
+
