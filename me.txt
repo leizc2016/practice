@@ -1,3 +1,2 @@
 branch
-master
-xxxx
+masterxxx
