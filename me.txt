@@ -1,8 +1,2 @@
-i恩呢
-1
-
-4
-aaa
-System.out.println("A");
-TTTT
+你好，程序
 
