@@ -1,2 +1,9 @@
-from master_1
+
 kkk
+<<<<<<< HEAD
+from master
+=======
+from master
+k
+k
+>>>>>>> c21cbfa7ebb840ff64a829ab26f7d2276363db
