@@ -1,0 +1,9 @@
+CREATE TABLE t_user (
+ id int(5) NOT NULL auto_increment primary key,
+ uname VARCHAR(32) not null,
+ pwd VARCHAR(32) not null,
+ name VARCHAR(32) not null,
+ age int,
+ tel VARCHAR(32)
+)
+
