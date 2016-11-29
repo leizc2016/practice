@@ -105,18 +105,26 @@
 				<version>3.0.3.RELEASE</version>
 			</dependency>
 
-			<!-- lvmamama -->
+			<!-- mybatis 包 -->
 			<dependency>
-				<groupId>com.lvmama.comm</groupId>
-				<artifactId>lvmama_soa</artifactId>
-				<version>1.0.4</version>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.2.8</version>
 			</dependency>
 
-			<!-- lvmamama dubbo -->
+			<!--mybatis spring 插件 -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.2.2</version>
+			</dependency>
+
+
+			<!-- dubbo -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
-				<version>2.5.3.lv1.6.4</version>
+				<version>2.5.3</version>
 				<exclusions>
 					<exclusion>
 						<artifactId>spring</artifactId>
@@ -124,15 +132,63 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>3.4.6</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.sun.jmx</groupId>
+						<artifactId>jmxri</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jdmk</groupId>
+						<artifactId>jmxtools</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.jms</groupId>
+						<artifactId>jms</artifactId>
+					</exclusion>
+					<exclusion>
+						<artifactId>log4j</artifactId>
+						<groupId>log4j</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>slf4j-log4j12</artifactId>
+						<groupId>org.slf4j</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- mysql -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.0.7</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.7.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+			</dependency>
 		</dependencies>
+
 	</dependencyManagement>
 	<modules>
 		<!-- <module>practice_user</module> -->
 		<module>practice_comm</module>
 		<module>practice_front</module>
 		<module>practice_public</module>
-		
+
 		<module>practice_user</module>
-		
+
 	</modules>
 </project>

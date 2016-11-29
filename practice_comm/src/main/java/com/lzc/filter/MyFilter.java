@@ -16,7 +16,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 
-import com.lvmama.pub.DistributedContext;
 
 public class MyFilter implements Filter {
 
@@ -35,7 +34,6 @@ public class MyFilter implements Filter {
 
 		String broserIP = getRemoteIpAddress(request);
 		System.out.println("broserIP--->" + broserIP);
-		DistributedContext.put("broserIP", broserIP);
 
 		chain.doFilter(req, rep);
 

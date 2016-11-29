@@ -48,7 +48,6 @@
 			<properties>
 				<p.dubbo.application.name>practice_front</p.dubbo.application.name>
 				<p.dubbo.registry.address>127.0.0.1:2181</p.dubbo.registry.address>
-				<p.dubbo.registry.address2>127.0.0.1:2181</p.dubbo.registry.address2>
 				<p.dubbo.registry.protocol>zookeeper</p.dubbo.registry.protocol>
 				<p.dubbo.protocol.port>20885</p.dubbo.protocol.port>
 			</properties>

@@ -1,6 +1,6 @@
 package com.lzc.user.service;
 
-import com.lzc.user.bean.User;
+import com.lzc.bean.User;
 
 /**
  * 用户信息接口

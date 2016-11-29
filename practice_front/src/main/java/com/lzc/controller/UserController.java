@@ -7,22 +7,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //import com.lzc.accout.LoginService;
-import com.lzc.user.bean.User;
+import com.lzc.bean.User;
+import com.lzc.user.service.UserService;
 
 @Controller
 @RequestMapping("/user/")
 public class UserController {
 
-	/*@Autowired
-	private LoginService loginService;*/
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("login")
 	public String login(String uname,
 			String pwd, Model model) {
-		//User user = loginService.login(uname, pwd);
-		User user =new User();
+		User user = userService.getUser(uname, pwd);
 		if (user != null) {
 			model.addAttribute("user", user);
+			System.out.println(user.toString());
 			return "main";
 		} else {
 			return "login";

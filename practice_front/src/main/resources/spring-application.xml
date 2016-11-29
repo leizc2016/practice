@@ -17,6 +17,6 @@
 		</property>
 	</bean>
 	
-	<import resource="classpath:applicationContext-practice-comm-dubbo-consumer.xml"/>
-	<import resource="applicationContext-practice-front-dubbo-consumer.xml"/>
+	<import resource="classpath:comm-dubbo-consumer.xml"/>
+	<import resource="user-dubbo-consumer.xml"/>
 </beans>
