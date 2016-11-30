@@ -22,10 +22,30 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
+	
+	<bean id="R_MyDataSource" destroy-method="close"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${r_jdbc.driverClassName}" />
+		<property name="url" value="${r_jdbc.url}" />
+		<property name="username" value="${r_jdbc.username}" />
+		<property name="password" value="${r_jdbc.password}" />
+	</bean>
+	
+	<bean id="dataSource" class="com.lzc.ds.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry value-ref="MyDataSource" key="MyDataSource"/>
+				<entry value-ref="R_MyDataSource" key="R_MyDataSource"/>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="MyDataSource"/>
+		
+	</bean>
 
 	<!-- SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="MyDataSource" />
+		<property name="dataSource" ref="dataSource" />
+		 <property name="configLocation" value="classpath:mybatis-config.xml" /> 
 		<property name="mapperLocations" value="classpath*:com/lzc/user/mapper/*Mapper.xml">
 		</property>
 	</bean>
