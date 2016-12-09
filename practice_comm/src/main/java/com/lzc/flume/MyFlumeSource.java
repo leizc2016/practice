@@ -29,7 +29,6 @@ public class MyFlumeSource extends AbstractSource implements Configurable, Polla
 	private BufferedReader reader = null;
 
 	public void outputLog(String msg) {
-		System.out.println(msg);
 		log.warn(msg);
 
 	}
@@ -44,7 +43,7 @@ public class MyFlumeSource extends AbstractSource implements Configurable, Polla
 	public void configure(Context context) {
 		command = context.getString("command");
 		String logpath = context.getString("logpath");
-		outputLog("Command: " + command + ", logpath:" + logpath);
+		outputLog("获取到参数 Command: " + command + ", logpath:" + logpath);
 
 		if (command == null) {
 			return;
@@ -73,7 +72,7 @@ public class MyFlumeSource extends AbstractSource implements Configurable, Polla
 		String line = null;
 		try {
 			while ((line = reader.readLine()) != null) {
-				outputLog("line=" + line);
+				outputLog("----[MyFlumeSource发送日志]---：" + line);
 				if (line != null) {
 					byte[] body = line.toString().getBytes();
 					Event event = EventBuilder.withBody(body);
