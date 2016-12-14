@@ -192,5 +192,23 @@
 			<version>1.7.0</version>
 		</dependency>
 
+		<!-- kafka 2.1-->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>0.10.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.11</artifactId>
+			<version>0.10.0.0</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+			<version>0.10.1.0</version>
+		</dependency> -->
+
 	</dependencies>
 </project>

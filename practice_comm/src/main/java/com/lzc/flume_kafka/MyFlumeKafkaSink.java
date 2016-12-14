@@ -1,4 +1,4 @@
-package com.lzc.flume;
+package com.lzc.flume_kafka;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,9 +17,9 @@ import org.apache.flume.sink.AbstractSink;
  * 
  * @date：2016-12-8
  */
-public class MyFlumeSink extends AbstractSink implements Configurable {
+public class MyFlumeKafkaSink extends AbstractSink implements Configurable {
 
-	private static Log log = LogFactory.getLog(MyFlumeSink.class);
+	private static Log log = LogFactory.getLog(MyFlumeKafkaSink.class);
 
 	public void outputLog(String msg) {
 		log.warn(msg);
@@ -35,6 +35,7 @@ public class MyFlumeSink extends AbstractSink implements Configurable {
 
 	public void getContentWithTx() {
 		Channel chanel = getChannel();
+		System.out.println("Chanel class():" + chanel.getClass().getName());
 		Transaction tx = chanel.getTransaction();
 		int i = 2;
 		try {
@@ -43,11 +44,12 @@ public class MyFlumeSink extends AbstractSink implements Configurable {
 			if (event != null) {
 				String content = new String(event.getBody());
 
-				outputLog("----[MyFlumeSink获取到的日志]---：" + content);
+				outputLog("----[MyFlumeKafkaSink获取到的日志]---：" + content);
 			}
-			/*if (i > 0) {
-				throw new Exception("故意异常");
-			}*/
+			/*
+			 * if (i > 0) { throw new Exception("故意异常"); }
+			 */
+			Thread.sleep(1000 * 5);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
@@ -58,7 +60,6 @@ public class MyFlumeSink extends AbstractSink implements Configurable {
 	}
 
 	public void configure(Context context) {
-		
 
 	}
 
