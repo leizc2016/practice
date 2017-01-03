@@ -12,8 +12,8 @@
     </settings>
 
 
-    <plugins>
+    <!-- <plugins>
         <plugin interceptor="com.lzc.ds.MyBaittsIntercepter">
         </plugin>
-    </plugins>
+    </plugins> -->
 </configuration>

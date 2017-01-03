@@ -9,6 +9,7 @@
 	<groupId>lzc</groupId>
 	<artifactId>practice_user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>practice_user</name>
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -64,6 +65,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>practice_user</finalName> 
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -78,6 +80,13 @@
 					<include>**/*.properties</include>
 				</includes>
 				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
 			</resource>
 		</resources>
 	</build>
