@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form action="${ctx}/user/login" method="get">
-		用户名:<input type="text" name="name" /><br> 
+		用户名:<input type="text" name="uname" /><br> 
 		密码:<input type="text"name="pwd" /><br> 
 			<input type="submit" value="登录">
 	</form>
