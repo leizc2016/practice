@@ -66,9 +66,10 @@ public class SerializableUtil {
 		user.setName("LZC");
 		user.setPwd("04324108");
 		try {
-			/*
-			 * String content = decoder(user); System.out.println(content);
-			 */
+
+			String content = decoder(user);
+			System.out.println(content);
+
 			Object obj = encoder(decoder);
 			System.out.println(obj);
 		} catch (Exception e) {

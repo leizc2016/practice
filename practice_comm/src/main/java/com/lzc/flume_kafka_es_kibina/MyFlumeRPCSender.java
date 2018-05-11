@@ -1,0 +1,80 @@
+package com.lzc.flume_kafka_es_kibina;
+
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.flume.Event;
+import org.apache.flume.EventDeliveryException;
+import org.apache.flume.api.RpcClient;
+import org.apache.flume.api.RpcClientFactory;
+import org.apache.flume.event.EventBuilder;
+
+/**
+ * 直接发送 参考官方Flume：http://flume.apache.org/FlumeDeveloperGuide.html
+ * 
+ * @author LeiZhicheng
+ * 
+ * @date：2017-4-14
+ */
+public class MyFlumeRPCSender {
+
+	private RpcClient client;
+	private String hostname;
+	private int port;
+
+	public void init(String hostname, int port) {
+		this.hostname = hostname;
+		this.port = port;
+		this.client = RpcClientFactory.getDefaultInstance(hostname, port);
+	}
+
+	public void sendDataToFlume(String data) {
+		System.out.println(data);
+		// Create a Flume Event object that encapsulates the sample data
+		 Map<String, String> map = new HashMap<String, String>();
+		 map.put("id", "1");
+		 map.put("name", "lzc");
+		Event event = EventBuilder.withBody(data, Charset.forName("UTF-8"),map);
+		
+		// Send the event
+		try {
+			client.append(event);
+		} catch (EventDeliveryException e) {
+			// clean up and recreate the client
+			client.close();
+			client = null;
+			client = RpcClientFactory.getDefaultInstance(hostname, port);
+			// Use the following method to create a thrift client (instead of
+			// the above line):
+			// this.client = RpcClientFactory.getThriftInstance(hostname, port);
+		}
+	}
+
+	public void cleanUp() {
+		// Close the RPC connection
+		client.close();
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		MyFlumeRPCSender sender = new MyFlumeRPCSender();
+		sender.init("mycentos", 41414);
+	
+			sender.sendDataToFlume("XXX");
+			System.out.println("--ok");
+		
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		sender.cleanUp();
+
+	}
+
+}

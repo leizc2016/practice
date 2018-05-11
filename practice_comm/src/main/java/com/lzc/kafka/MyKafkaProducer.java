@@ -13,7 +13,7 @@ public class MyKafkaProducer {
 	 */
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "10.112.1.91:9092");
+		props.put("bootstrap.servers", "10.112.1.188:9092");
 		props.put("acks", "all");
 		props.put("retries", 0);
 		props.put("batch.size", 16384);
@@ -24,9 +24,9 @@ public class MyKafkaProducer {
 
 		Producer<String, String> producer = new KafkaProducer<String, String>(props);
 
-		for (int i = 0; i < 10; i++) {
-			producer.send(new ProducerRecord<String, String>("ordertopic", "World_" + i,"World_" + i));
-			System.out.println("World_" + i + " has send");
+		for (int i = 0; i < 4; i++) {
+			producer.send(new ProducerRecord<String, String>("topic-05", "World_" + i,"World_--" + i));
+			System.out.println("World_" + i + " has send---");
 		}
 		producer.flush();
 		producer.close();

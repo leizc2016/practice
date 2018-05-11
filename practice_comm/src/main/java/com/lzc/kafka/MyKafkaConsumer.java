@@ -14,7 +14,7 @@ public class MyKafkaConsumer {
 		System.out.println("start listen....");
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "mycentos:9092");
-		props.put("group.id", "ordertopic");
+		props.put("group.id", "kafkatopic1");
 		props.put("enable.auto.commit", true);
 		props.put("auto.commit.interval.ms", 100);
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -23,7 +23,7 @@ public class MyKafkaConsumer {
 		props.put("auto.offset.reset", "earliest");
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 		//System.out.println(consumer.listTopics());
-		String topic = "ordertopic";
+		String topic = "kafkatopic1";
 		consumer.subscribe(Arrays.asList(topic));
 		while (true) {
 			ConsumerRecords<String, String> records = consumer.poll(0);
